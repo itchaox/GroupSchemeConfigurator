@@ -1,2 +1,2 @@
-# GroupSchemeConfigurator
-分组方案配置器
+# SortSchemeConfigurator
+排序方案配置器
