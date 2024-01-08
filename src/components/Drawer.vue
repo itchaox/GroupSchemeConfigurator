@@ -3,7 +3,7 @@
  * @Author     : itchaox
  * @Date       : 2023-12-16 09:57
  * @LastAuthor : itchaox
- * @LastTime   : 2024-01-09 00:51
+ * @LastTime   : 2024-01-09 07:29
  * @desc       : 抽屉
 -->
 
@@ -39,7 +39,7 @@
 
   const addMethodName = ref();
 
-  // FIXME 排序
+  // FIXME 分组
   const sortList = ref([]);
 
   /**
@@ -177,7 +177,7 @@
     };
   };
 
-  // 排序的字段列表
+  // 分组的字段列表
   const sortFieldList = ref([]);
 
   async function init() {
@@ -294,11 +294,11 @@
           v-model="collapse"
           class="collapse"
         >
-          <!-- FIXME 排序 -->
+          <!-- FIXME 分组 -->
           <el-collapse-item name="1">
             <template #title>
               <AlphabeticalSorting theme="outline" />
-              <span class="collapse-title">设置排序条件</span>
+              <span class="collapse-title">设置分组条件</span>
               <span
                 v-if="sortList.length > 0"
                 style="color: #4493c5"

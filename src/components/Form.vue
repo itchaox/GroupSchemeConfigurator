@@ -3,7 +3,7 @@
  * @Author     : itchaox
  * @Date       : 2023-12-23 09:34
  * @LastAuthor : itchaox
- * @LastTime   : 2024-01-09 01:00
+ * @LastTime   : 2024-01-09 07:30
  * @desc       : 
 -->
 
@@ -102,17 +102,17 @@
   });
 
   async function use(item) {
-    const _sortList = await view.getSortInfo();
+    const _sortList = await view.getGroupInfo();
     if (_sortList?.length > 0) {
       for (const item of _sortList) {
-        await view.deleteSort(item);
+        await view.deleteGroup(item);
       }
       await view.applySetting();
     }
 
     // 筛选
     if (item?.list?.length > 0) {
-      await view.addSort(
+      await view.addGroup(
         item?.list?.map((item) => ({
           fieldId: item.id,
           desc: item.desc,
@@ -193,9 +193,9 @@
 <template>
   <div class="tip">
     <div class="tip-text tip-title">操作步骤:</div>
-    <div class="tip-text">1. 新增方案: 配置方案名字和排序条件</div>
-    <div class="tip-text">2. 点击"运行"按钮，使用当前方案的排序条件</div>
-    <div class="tip-text">3. 点击"编辑"按钮，修改选定方案名字和排序条件</div>
+    <div class="tip-text">1. 新增方案: 配置方案名字和分组条件</div>
+    <div class="tip-text">2. 点击"运行"按钮，使用当前方案的分组条件</div>
+    <div class="tip-text">3. 点击"编辑"按钮，修改选定方案名字和分组条件</div>
   </div>
 
   <div
@@ -281,7 +281,7 @@
               <div
                 class="cursor-pointer"
                 @click="use(scope.row)"
-                title="运用排序条件"
+                title="运用分组条件"
                 style="color: rgb(20, 86, 240)"
               >
                 <el-icon size="20"><VideoPlay /></el-icon>
